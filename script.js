@@ -1,7 +1,6 @@
- // Variable para contar los productos seleccionados
+
 let total = 0;
 
-// 1. SUMAR / RESTAR AL CONTADOR DE LA TIENDITA
 function agregarAlContador(boton) {
     if (boton.innerText === "❤️ Me interesa") {
         boton.innerText = "✔ Seleccionado";
@@ -16,7 +15,19 @@ function agregarAlContador(boton) {
     document.getElementById("contador").innerText = total;
 }
 
-// 2. FILTRAR POR CATEGORÍAS USANDO SWITCH
+
+let temporizadorNotificacion;
+
+function agregarAlContador(boton) {
+    const contadorElem = document.getElementById('contador');
+    let contadorActual = parseInt(contadorElem.innerText) || 0;
+    contadorElem.innerText = contadorActual + 1;
+
+    // 2. Mostrar mensaje de alerta emergente
+    alert("¡Se ha agregado al carrito!");
+}
+
+
 function filtrarCategoria(categoria) {
     let productos = document.querySelectorAll(".producto");
 
@@ -57,14 +68,14 @@ function filtrarCategoria(categoria) {
                 break;
 
             default:
-                // Mostrar todos los productos
+              
                 prod.style.display = "block";
                 break;
         }
     }
 }
 
-// 3. BUSCADOR EN TIEMPO REAL
+
 function buscarProductos() {
     let texto = document.getElementById("input-buscar").value.toLowerCase();
     let productos = document.querySelectorAll(".producto");
